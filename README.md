@@ -1,47 +1,66 @@
 # Simulación de Monte Carlo para Evaluación de Estrategias de Inversión
 
-Este proyecto utiliza simulaciones de Monte Carlo para analizar y comparar el comportamiento de dos estrategias de inversión con perfiles de riesgo distintos (conservadora y agresiva) a lo largo de un horizonte de 10 años.
+Este proyecto aplica simulaciones de Monte Carlo para modelar y comparar el desempeño de dos carteras de inversión (conservadora y agresiva) a lo largo de un horizonte de 10 años.
 
 ## Objetivo
 
-El objetivo principal es evaluar cómo la volatilidad y el retorno esperado impactan en el valor futuro de una inversión, modelando la incertidumbre a través de simulaciones estocásticas. Este enfoque permite medir cuantitativamente el riesgo y el potencial de ganancia de cada estrategia.
+Evaluar el impacto de la incertidumbre en los retornos anuales sobre el valor futuro de una inversión, y cuantificar el riesgo asociado a distintos perfiles de riesgo/rentabilidad.
 
 ## Metodología
 
-Se realizaron 10,000 simulaciones para cada cartera. En cada simulación, se proyectó el crecimiento de una inversión inicial de $10,000 utilizando retornos anuales aleatorios generados a partir de distribuciones normales con parámetros definidos para cada estrategia.
+Se realizaron 10,000 simulaciones para cada estrategia con parámetros de retorno esperado y volatilidad diferenciados. Para cada simulación, se generaron trayectorias anuales utilizando distribuciones normales.
 
-### Parámetros de las carteras simuladas:
+| Cartera       | Retorno Esperado | Volatilidad |
+|---------------|------------------|-------------|
+| Conservadora  | 5% anual          | 8%          |
+| Agresiva      | 9% anual          | 25%         |
 
-| Cartera       | Retorno esperado anual | Volatilidad anual |
-|---------------|------------------------|--------------------|
-| Conservadora  | 5%                     | 8%                |
-| Agresiva      | 9%                     | 25%               |
-
-## Visualización comparativa
-
-La siguiente gráfica muestra la distribución de resultados finales tras 10 años para ambas carteras:
+## Visualización
 
 ![Comparación de carteras](img/comparacion_carteras.png)
 
 ## Métricas clave
 
-Se calcularon métricas estadísticas relevantes para cada estrategia:
+Las siguientes métricas resumen el comportamiento esperado de ambas estrategias:
 
-| Métrica                        | Conservadora | Agresiva |
-|-------------------------------|--------------|----------|
-| Valor esperado                | $16,318      | $23,759  |
-| Mediana                       | $15,891      | $18,494  |
-| Percentil 5 (Valor en Riesgo) | $10,453      | $4,607   |
-| Percentil 95                  | $23,635      | $60,280  |
-| Probabilidad de pérdida       | 3.35%        | 22.37%   |
-| Probabilidad de duplicar      | 16.96%       | 46.05%   |
+- Valor Esperado
+- Mediana
+- Percentil 5 (Valor en Riesgo)
+- Percentil 95
+- Probabilidad de pérdida
+- Probabilidad de duplicar la inversión
 
-Estas métricas permiten comprender el balance entre riesgo y retorno, y son útiles para la toma de decisiones financieras fundamentadas.
+## Instrucciones
 
-## Cómo ejecutar el proyecto
-
-1. Clona este repositorio en tu máquina local.
-2. Instala las dependencias necesarias:
+1. Clona este repositorio.
+2. Instala las dependencias:
 
 ```bash
 pip install -r requirements.txt
+```
+
+3. Ejecuta el notebook `simulacion_montecarlo.ipynb` paso a paso.
+
+## Requisitos
+
+- Python 3.8+
+- Numpy
+- Pandas
+- Matplotlib
+- Seaborn
+
+## Estructura del proyecto
+
+```
+montecarlo_inversion_finanzas/
+├── README.md
+├── simulacion_montecarlo.ipynb
+├── requirements.txt
+└── img/
+    └── comparacion_carteras.png
+```
+
+## Autor
+
+Proyecto desarrollado como parte de un portafolio de análisis financiero aplicado a ciencia de datos.
+
